@@ -10,23 +10,20 @@ import Foundation
 
 
 public struct Gradient {
-    var stops: [(Color, Double)]
+    public var stops: [(Color, Double)]
     
-    init(stops: [(Color, Double)]) {
+    public init(stops: [(Color, Double)]) {
         self.stops = stops
     }
-    init(start: Color, end: Color) {
-        self.init(stops: [(start, 0), (end, 1)])
-    }
-    init(_ colors: [Color]) {
+    public init(_ colors: [Color]) {
         self.init(stops: colors.enumerated().map { (i, color) in
             (color, Double(i) / Double(colors.count - 1))
         })
     }
-    init(_ colors: Color...) {
+    public init(_ colors: Color...) {
         self.init(colors)
     }
-    mutating func addStop(color: Color, at position: Double) {
+    mutating public func addStop(color: Color, at position: Double) {
         stops += [(color, position)]
     }
     

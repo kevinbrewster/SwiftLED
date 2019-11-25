@@ -14,16 +14,16 @@ public protocol FillStyle {
 }
 
 public struct Color : Equatable {
-    let red: UInt8
-    let green: UInt8
-    let blue: UInt8
+    public let red: UInt8
+    public let green: UInt8
+    public let blue: UInt8
     
     
-    static var black = Color(red: 0, green: 0, blue: 0)
-    static var blue = Color(red: 0, green: 0, blue: 0xFF)
-    static var red = Color(red: 0xFF, green: 0, blue: 0)
-    static var green = Color(red: 0, green: 0xFF, blue: 0)
-    static var white = Color(red: 0xFF, green: 0xFF, blue: 0xFF)
+    public static var black = Color(red: 0, green: 0, blue: 0)
+    public static var blue = Color(red: 0, green: 0, blue: 0xFF)
+    public static var red = Color(red: 0xFF, green: 0, blue: 0)
+    public static var green = Color(red: 0, green: 0xFF, blue: 0)
+    public static var white = Color(red: 0xFF, green: 0xFF, blue: 0xFF)
 }
 
 

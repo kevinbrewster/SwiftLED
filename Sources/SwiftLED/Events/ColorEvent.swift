@@ -17,7 +17,7 @@ public class ColorEvent : Event {
         colors = fill.colors(total: leds.count)
         super.init(delay: delay, endDelay: endDelay)
     }
-    override func step(interval: TimeInterval) {
+    override public func step(interval: TimeInterval) {
         super.step(interval: interval)
         
         guard state == .inProgress else {

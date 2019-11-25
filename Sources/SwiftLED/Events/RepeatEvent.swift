@@ -30,7 +30,7 @@ public class RepeatEvent : SequentialEventGroup {
             super.finish()
         }
     }
-    override func reset() {
+    override public func reset() {
         remainingRepeats = repeatCount
         super.reset()
     }

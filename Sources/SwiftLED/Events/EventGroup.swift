@@ -15,7 +15,7 @@ public class ConcurrentEventGroup : Event {
         self.events = events
         super.init(delay: delay)
     }
-    override func step(interval: TimeInterval) {
+    override public func step(interval: TimeInterval) {
         super.step(interval: interval)
         guard state == .inProgress else {
             return
@@ -29,7 +29,7 @@ public class ConcurrentEventGroup : Event {
             state = .finished
         }
     }
-    override func reset() {
+    override public func reset() {
         for event in events {
             event.reset()
         }
@@ -52,7 +52,7 @@ public class SequentialEventGroup : Event {
     }
     
     
-    override func step(interval: TimeInterval) {
+    override public func step(interval: TimeInterval) {
         super.step(interval: interval)
         guard state == .inProgress else {
             return
@@ -79,7 +79,7 @@ public class SequentialEventGroup : Event {
                 state = .inProgress
         }
     }
-    override func reset() {
+    override public func reset() {
         currentEventIndex = 0
         
         for event in events {

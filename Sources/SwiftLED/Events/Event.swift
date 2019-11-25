@@ -21,13 +21,13 @@ public class Event {
     
     var state: EventState = .delayed
     
-    init(delay: TimeInterval = 0, endDelay: TimeInterval = 0) {
+    public init(delay: TimeInterval = 0, endDelay: TimeInterval = 0) {
         self.delay = delay
         self.endDelay = endDelay
     }
     
     internal var time: TimeInterval! = nil
-    func step(interval: TimeInterval) {
+    public func step(interval: TimeInterval) {
         if time == nil {
             time = 0
         } else {
@@ -44,7 +44,7 @@ public class Event {
             default: ()
         }
     }
-    func reset() {
+    public func reset() {
         time = nil
         state = .delayed
     }
@@ -56,7 +56,7 @@ public class Event {
             state = .finished
         }
     }
-    func endDelay(_ endDelay: TimeInterval) -> Self {
+    public func endDelay(_ endDelay: TimeInterval) -> Self {
         self.endDelay = endDelay
         return self
     }
@@ -65,11 +65,11 @@ public class Event {
 public class BlockEvent : Event {
     var block: () -> Bool
     
-    init(block: @escaping () -> Bool) {
+    public init(block: @escaping () -> Bool) {
         self.block = block
         super.init()
     }
-    override func step(interval: TimeInterval) {
+    override public func step(interval: TimeInterval) {
         if block() {
             state = .finished
         }

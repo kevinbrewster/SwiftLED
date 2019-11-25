@@ -19,7 +19,7 @@ public class AnimationEvent : Event {
         self.curve = curve
         super.init(delay: delay)
     }
-    override func step(interval: TimeInterval) {
+    override public func step(interval: TimeInterval) {
         super.step(interval: interval)
         
         guard state == .inProgress else {
@@ -160,7 +160,7 @@ public class RangeAnimationEvent : AnimationEvent {
             lastRange = lowerBound..<upperBound
         }
     }
-    override func reset() {
+    override public func reset() {
         super.reset()
         
         if lastRange.startIndex == start.startIndex {

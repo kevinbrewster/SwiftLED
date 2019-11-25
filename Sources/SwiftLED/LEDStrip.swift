@@ -28,7 +28,7 @@ public class LEDStrip {
     private var lastTime: TimeInterval? = nil
     
     //init(pwm: PWMOutput, numberOfLeds: Int) {
-    init(numberOfLeds: Int) {
+    public init(numberOfLeds: Int) {
         //self.ws281x = WS281x(pwm, type: .WS2812B, numElements: numberOfLeds)
         self.numberOfLeds = numberOfLeds
                 
@@ -39,7 +39,7 @@ public class LEDStrip {
     private func setupRefreshTimer(interval: TimeInterval) {
         refreshTimer = DispatchSource.makeTimerSource(queue: refreshQueue)
         refreshTimer?.schedule(deadline: .now(), repeating: .milliseconds(Int(refreshInterval * 1000)), leeway: .milliseconds(2))
-        refreshTimer?.setEventHandler { [weak self] in            
+        refreshTimer?.setEventHandler { [weak self] in
             self?.refresh()
         }
         refreshTimer?.resume()

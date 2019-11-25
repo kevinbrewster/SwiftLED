@@ -11,7 +11,6 @@ There is a companion app for MacOS called [SwiftLEDSimulator](https://github.com
 5. [Usage](#usage)
 6. [How It Works](#how-it-works)
 
----
 
 # Static Examples:
 

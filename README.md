@@ -47,6 +47,8 @@ ledStrip.repeat(3) {
 
 #### Rainbow Gradient Color Wipe
 ```swift
+let rainbow = Gradient(.red, .green, .blue, .red)
+
 ledStrip.repeat(2) {
   ledStrip.animate(rainbow, start: 0..<1, end: 0..<180, duration: 2.0, fillSize: 180)
 }
@@ -56,6 +58,8 @@ ledStrip.repeat(2) {
 
 #### Moving Rainbow Gradient
 ```swift
+let rainbow = Gradient(.red, .green, .blue, .red)
+
 ledStrip.repeat(2) {
   ledStrip.animate(rainbow, start: 0..<45, end: 45..<90, duration: 2.0)
 }

@@ -52,7 +52,7 @@ class PopcornEvent : ColorEvent {
             flashRandom()
         }
     }
-    func minDistanceToLitLeds(_ index: Int) -> Int {
+    private func minDistanceToLitLeds(_ index: Int) -> Int {
         var minDist = leds.count
         for (i, _) in activeLEDs {
             let dist = min(abs(index - i), abs( (index - leds.count) - i))
@@ -80,7 +80,7 @@ class PopcornEvent : ColorEvent {
     }
 }
 extension LEDStrip {
-    @discardableResult func popcorn(_ fill: FillStyle, averagePopsPerSecond: Int, averagePopDuration: TimeInterval) -> Event {
+    @discardableResult public func popcorn(_ fill: FillStyle, averagePopsPerSecond: Int, averagePopDuration: TimeInterval) -> Event {
         let event = PopcornEvent(leds: leds, fill: fill, averagePopsPerSecond: averagePopsPerSecond, averagePopDuration: averagePopDuration)
         if autoAddEvents {
             add(event: event)

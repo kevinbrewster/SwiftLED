@@ -30,7 +30,7 @@ class TheatreChaseEvent : ConcurrentEventGroup {
 }
 
 extension LEDStrip {
-    @discardableResult func threatreChase(_ fill: FillStyle, repeatCount: Int) -> Event {
+    @discardableResult public func threatreChase(_ fill: FillStyle, repeatCount: Int) -> Event {
         let event = TheatreChaseEvent(leds: leds, fill: fill, repeatCount: repeatCount, flashDuration: 0.08)
         if autoAddEvents {
             add(event: event)

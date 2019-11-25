@@ -9,7 +9,7 @@
 import Foundation
 
 
-struct Gradient {
+public struct Gradient {
     var stops: [(Color, Double)]
     
     init(stops: [(Color, Double)]) {
@@ -32,7 +32,7 @@ struct Gradient {
     
 }
 extension Gradient: FillStyle {
-    func colors(total: Int) -> [Color] {
+    public func colors(total: Int) -> [Color] {
         guard stops.count > 0 else { return [] }
         
         let sortedStops = stops.sorted(by: { $0.1 < $1.1 })

@@ -19,27 +19,27 @@ public class LED {
 }
 
 extension Array where Element == LED {
-    @discardableResult func fill(_ fill: Color, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> ColorEvent {
+    @discardableResult public func fill(_ fill: Color, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> ColorEvent {
         return self.fill(fill as FillStyle, delay: delay, endDelay: endDelay)
     }
-    @discardableResult func fill(_ fill: FillStyle, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> ColorEvent {
+    @discardableResult public func fill(_ fill: FillStyle, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> ColorEvent {
         let event = ColorEvent(leds: self, fill: fill, delay: delay, endDelay: endDelay)
         if let ledStrip = first?.ledStrip, ledStrip.autoAddEvents {
             ledStrip.add(event: event)
         }
         return event
     }
-    @discardableResult func animate(_ fill: Color, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0, curve: BezierAnimationCurve = .linear) -> ColorAnimationEvent {
+    @discardableResult public func animate(_ fill: Color, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0, curve: BezierAnimationCurve = .linear) -> ColorAnimationEvent {
         return self.animate(fill as FillStyle, duration: duration, delay: delay, endDelay: endDelay, curve: curve)
     }
-    @discardableResult func animate(_ fill: FillStyle, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0, curve: BezierAnimationCurve = .linear) -> ColorAnimationEvent {
+    @discardableResult public func animate(_ fill: FillStyle, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0, curve: BezierAnimationCurve = .linear) -> ColorAnimationEvent {
         let event = ColorAnimationEvent(leds: self, color: fill, duration: duration, delay: delay, endDelay: endDelay, curve: curve)
         if let ledStrip = first?.ledStrip, ledStrip.autoAddEvents {
             ledStrip.add(event: event)
         }
         return event
     }
-    @discardableResult func flash(_ fill: FillStyle, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> SequentialEventGroup {
+    @discardableResult public func flash(_ fill: FillStyle, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> SequentialEventGroup {
         guard let originalColor = first?.color else { return SequentialEventGroup(events: []) }
         
         let event = SequentialEventGroup(events: [
@@ -55,19 +55,19 @@ extension Array where Element == LED {
 }
 
 extension LED {
-    @discardableResult func fill(_ fill: Color, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> ColorEvent {
+    @discardableResult public func fill(_ fill: Color, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> ColorEvent {
         return [self].fill(fill as FillStyle, delay: delay, endDelay: endDelay)
     }
-    @discardableResult func fill(_ fill: FillStyle, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> ColorEvent {
+    @discardableResult public func fill(_ fill: FillStyle, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> ColorEvent {
         return [self].fill(fill as FillStyle, delay: delay, endDelay: endDelay)
     }
-    @discardableResult func animate(_ fill: Color, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0, curve: BezierAnimationCurve = .linear) -> ColorAnimationEvent {
+    @discardableResult public func animate(_ fill: Color, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0, curve: BezierAnimationCurve = .linear) -> ColorAnimationEvent {
         return [self].animate(fill, duration: duration, delay: delay, endDelay: endDelay, curve: curve)
     }
-    @discardableResult func animate(_ fill: FillStyle, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0, curve: BezierAnimationCurve = .linear) -> ColorAnimationEvent {
+    @discardableResult public func animate(_ fill: FillStyle, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0, curve: BezierAnimationCurve = .linear) -> ColorAnimationEvent {
         return [self].animate(fill, duration: duration, delay: delay, endDelay: endDelay, curve: curve)
     }
-    @discardableResult func flashColor(_ fill: FillStyle, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> SequentialEventGroup {
+    @discardableResult public func flashColor(_ fill: FillStyle, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> SequentialEventGroup {
         return [self].flash(fill, duration: duration, delay: delay, endDelay: endDelay)
     }
 }

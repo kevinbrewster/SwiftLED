@@ -8,7 +8,12 @@
 
 import Foundation
 
-struct Color : Equatable {
+
+public protocol FillStyle {
+    func colors(total: Int) -> [Color]
+}
+
+public struct Color : Equatable {
     let red: UInt8
     let green: UInt8
     let blue: UInt8
@@ -21,11 +26,9 @@ struct Color : Equatable {
     static var white = Color(red: 0xFF, green: 0xFF, blue: 0xFF)
 }
 
-protocol FillStyle {
-    func colors(total: Int) -> [Color]
-}
+
 extension Color: FillStyle {
-    func colors(total: Int) -> [Color] {
+    public func colors(total: Int) -> [Color] {
         return (0..<total).map { _ in self }
     }
 }
@@ -35,8 +38,8 @@ extension Color {
         Color(red: UInt8.random(in: 0...255), green: UInt8.random(in: 0...255), blue: UInt8.random(in: 0...255))
     }
 }
-class RandomColor : FillStyle {
-    func colors(total: Int) -> [Color] {
+public class RandomColor : FillStyle {
+    public func colors(total: Int) -> [Color] {
         return (0..<total).map { _ in Color.random() }
     }
 }

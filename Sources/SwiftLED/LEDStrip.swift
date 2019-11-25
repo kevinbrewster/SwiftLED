@@ -22,7 +22,7 @@ public class LEDStrip {
     
     internal var autoAddEvents = true
     
-    var didRefresh: (() -> Void)?
+    public var didRefresh: (() -> Void)?
     
     //private let refreshQueue = DispatchQueue(label: "LEDStrip")
     private let refreshQueue = DispatchQueue.main
@@ -89,7 +89,7 @@ public class LEDStrip {
     private var events: [Event] = []
 
     
-    func add(event: Event) {
+    public func add(event: Event) {
         events += [event]
         
         //print("LEDStrip->add(): \(events.count) events")
@@ -98,24 +98,24 @@ public class LEDStrip {
 
 
 extension LEDStrip {
-    @discardableResult func animate(_ fill: Color, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0, curve: BezierAnimationCurve = .linear) -> ColorAnimationEvent {
+    @discardableResult public func animate(_ fill: Color, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0, curve: BezierAnimationCurve = .linear) -> ColorAnimationEvent {
         return leds.animate(fill, duration: duration, delay: delay, endDelay: endDelay, curve: curve)
     }
-    @discardableResult func animate(_ fill: FillStyle, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0, curve: BezierAnimationCurve = .linear) -> ColorAnimationEvent {
+    @discardableResult public func animate(_ fill: FillStyle, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0, curve: BezierAnimationCurve = .linear) -> ColorAnimationEvent {
         return leds.animate(fill, duration: duration, delay: delay, endDelay: endDelay, curve: curve)
     }
     
-    @discardableResult func animate(_ fill: FillStyle, start: Range<Int>, end: Range<Int>, duration: TimeInterval, fillSize: Int? = nil) -> RangeAnimationEvent {
+    @discardableResult public func animate(_ fill: FillStyle, start: Range<Int>, end: Range<Int>, duration: TimeInterval, fillSize: Int? = nil) -> RangeAnimationEvent {
         let event = RangeAnimationEvent(leds: leds, fill: fill, start: start, end: end, duration: duration, wrapAt: leds.count, fillSize: fillSize)
         if autoAddEvents {
             add(event: event)
         }
         return event
     }
-    @discardableResult func fill(_ fill: Color, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> ColorEvent {
+    @discardableResult public func fill(_ fill: Color, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> ColorEvent {
         return leds.fill(fill as FillStyle, delay: delay)
     }
-    @discardableResult func fill(_ fill: FillStyle, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> ColorEvent {
+    @discardableResult public func fill(_ fill: FillStyle, delay: TimeInterval = 0, endDelay: TimeInterval = 0) -> ColorEvent {
         return leds.fill(fill as FillStyle, delay: delay)
     }
 }

@@ -64,7 +64,7 @@ ledStrip.repeat(2) {
   ledStrip.animate(rainbow, start: 0..<45, end: 45..<90, duration: 2.0)
 }
 ```
-![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/gradient_move.png)
+![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/gradient_move.gif)
 
 
 #### Theatre Chase

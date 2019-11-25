@@ -31,6 +31,8 @@ extension Color {
     public static var red = Color(red: 0xFF, green: 0, blue: 0)
     public static var green = Color(red: 0, green: 0xFF, blue: 0)
     public static var white = Color(red: 0xFF, green: 0xFF, blue: 0xFF)
+    public static var yellow = Color(red: 0xFF, green: 0xFF, blue: 0)
+    public static var orange = Color(red: 0xFF, green: 165, blue: 0xFF)
 }
 
 extension Color: FillStyle {

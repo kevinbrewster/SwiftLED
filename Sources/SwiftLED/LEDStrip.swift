@@ -123,7 +123,7 @@ public struct EventBuilder {
 
 
 extension LEDStrip {
-    @discardableResult public func chain(delay: TimeInterval = 0, @EventBuilder _ content: () -> [Event]) -> SequentialEventGroup {
+    @discardableResult public func sequence(delay: TimeInterval = 0, @EventBuilder _ content: () -> [Event]) -> SequentialEventGroup {
         let _autoAddEvents = autoAddEvents
         autoAddEvents = false
         let events = content()
@@ -135,8 +135,8 @@ extension LEDStrip {
         }
         return event
     }
-    @discardableResult public func chain(delay: TimeInterval = 0, @EventBuilder _ content: () -> Event) -> SequentialEventGroup {
-        return chain(delay: delay, { [content()] })
+    @discardableResult public func sequence(delay: TimeInterval = 0, @EventBuilder _ content: () -> Event) -> SequentialEventGroup {
+        return sequence(delay: delay, { [content()] })
     }
     
     

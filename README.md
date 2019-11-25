@@ -142,8 +142,6 @@ ledStrip.popcorn(Color(red: 255, green: 0, blue: 0), averagePopsPerSecond: 6, av
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/pulse_popcorn.gif)
 
----
-
 
 # Supported Hardware:
 
@@ -155,9 +153,12 @@ ledStrip.popcorn(Color(red: 255, green: 0, blue: 0), averagePopsPerSecond: 6, av
 
 # Installation
 
+1. Install Swift on your Raspberry Pi (https://github.com/uraimo/buildSwiftOnARM) or (https://lickability.com/blog/swift-on-raspberry-pi/)
+2. Create swift project with a dependency for this package
 
 # Usage
 
 
 # How it works
+
 

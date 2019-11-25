@@ -1,14 +1,19 @@
 # SwiftLED
 
-SwiftLED is a high-level library to control addressable LEDs with animations and effects. It's designed to run on a Raspberry Pi.
+SwiftLED is a high-level library to control addressable LEDs (e.g. WS2812/NeoPixel) with animations and effects. It's designed to run on a Raspberry Pi.
 
 There is a companion app for MacOS called [SwiftLEDSimulator](https://github.com/kevinbrewster/SwiftLEDSimulator) that allows you to test out your LED programs before sending your code to the embedded device (e.g. Raspberry Pi). 
 
 *The animations below are screenshots from this app.*
 
+1. [Static Examples](#static-examples)
+2. [Animation Examples](#animation-examples)
+3. [Supported Hardware](#supported-hardware)
+4. [Installation](#installation)
+5. [Usage](#usage)
+6. [How It Works](#how-it-works)
 
-### Supported LEDs:
-1. WS2812 / WS2812b (aka NeoPixel)
+---
 
 ### Static Examples:
 
@@ -142,4 +147,11 @@ ledStrip.popcorn(Color(red: 255, green: 0, blue: 0), averagePopsPerSecond: 6, av
 
 ---
 
+
+### Supported LEDs:
+1. WS2812 / WS2812b (aka NeoPixel)
+
+
+
 ### How it works
+

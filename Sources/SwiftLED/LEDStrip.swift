@@ -156,6 +156,12 @@ extension LEDStrip {
     @discardableResult public func `repeat`(_ count: Int, delay: TimeInterval = 0, @EventBuilder _ content: () -> Event) -> RepeatEvent {
         return `repeat`(count, delay: delay, { [content()] })
     }
+    @discardableResult public func repeatForever(delay: TimeInterval = 0, @EventBuilder _ content: () -> [Event]) -> RepeatEvent {
+        return `repeat`(.max, delay: delay, { content() })
+    }
+    @discardableResult public func repeatForever(delay: TimeInterval = 0, @EventBuilder _ content: () -> Event) -> RepeatEvent {
+        return `repeat`(.max, delay: delay, { [content()] })
+    }
 }
 
 

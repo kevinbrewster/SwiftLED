@@ -22,7 +22,9 @@ public class RepeatEvent : SequentialEventGroup {
         if remainingRepeats > 0 {
             // run all the events again
             super.reset()
-            remainingRepeats -= 1
+            if remainingRepeats != .max {
+                remainingRepeats -= 1
+            }
             time = delay
             state = .inProgress
             

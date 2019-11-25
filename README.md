@@ -69,6 +69,8 @@ ledStrip.repeat(2) {
 
 #### Theatre Chase
 ```swift
+let rainbow = Gradient(.red, .green, .blue, .red)
+
 ledStrip.threatreChase(.red, repeatCount: 30)
 ledStrip.threatreChase(rainbow, repeatCount: 30)
 ```

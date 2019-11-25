@@ -37,5 +37,7 @@ extension LEDStrip {
         }
         return event
     }
-    
+    @discardableResult public func threatreChase(_ fill: Color, repeatCount: Int) -> Event {
+        return self.threatreChase(fill as FillStyle, repeatCount: repeatCount)
+    }
 }

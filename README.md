@@ -14,25 +14,31 @@ There is a companion app for MacOS called [SwiftLEDSimulator](https://github.com
 
 #### Single Color LED Move
 ```swift
-ledStrip.animate(.red, start: 0..<1, end: 45..<46, duration: 2.0)
-ledStrip.animate(.green, start: 0..<1, end: 45..<46, duration: 2.0)
-ledStrip.animate(.blue, start: 0..<1, end: 45..<46, duration: 2.0)
+ledStrip.repeatForever {
+  ledStrip.animate(.red, start: 0..<1, end: 45..<46, duration: 2.0)
+  ledStrip.animate(.green, start: 0..<1, end: 45..<46, duration: 2.0)
+  ledStrip.animate(.blue, start: 0..<1, end: 45..<46, duration: 2.0)
+}
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/single_loop.png)
 
 #### Dual Color LED Move
 ```swift
-ledStrip.animate(.red, start: 45..<47, end: 0..<2, duration: 2.0)
-ledStrip.animate(.green, start: 0..<2, end: 45..<47, duration: 2.0)
-ledStrip.animate(.blue, start: 45..<47, end: 0..<2, duration: 2.0)
+ledStrip.repeatForever {
+  ledStrip.animate(.red, start: 45..<47, end: 0..<2, duration: 2.0)
+  ledStrip.animate(.green, start: 0..<2, end: 45..<47, duration: 2.0)
+  ledStrip.animate(.blue, start: 45..<47, end: 0..<2, duration: 2.0)
+}
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/dual_loop.png)
 
 #### Color Wipes
 ```swift
-ledStrip.animate(.red, start: 0..<1, end: 0..<45, duration: 1.0)
-ledStrip.animate(.green, start: 0..<1, end: 0..<45, duration: 1.0)
-ledStrip.animate(.blue, start: 0..<1, end: 0..<45, duration: 1.0)
+ledStrip.repeatForever {
+  ledStrip.animate(.red, start: 0..<1, end: 0..<45, duration: 1.0)
+  ledStrip.animate(.green, start: 0..<1, end: 0..<45, duration: 1.0)
+  ledStrip.animate(.blue, start: 0..<1, end: 0..<45, duration: 1.0)
+}
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/color_wipe.png)
 

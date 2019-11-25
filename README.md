@@ -91,6 +91,8 @@ ledStrip.repeat(3) {
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/comet.png)
 
+---
+
 #### Rainbow Gradient Color Wipe
 ```swift
 let rainbow = Gradient(.red, .green, .blue, .red)
@@ -101,6 +103,7 @@ ledStrip.repeat(2) {
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/gradient_wipe.png)
 
+---
 
 #### Moving Rainbow Gradient
 ```swift
@@ -112,6 +115,7 @@ ledStrip.repeat(2) {
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/gradient_move.gif)
 
+---
 
 #### Theatre Chase
 ```swift
@@ -122,6 +126,7 @@ ledStrip.threatreChase(rainbow, repeatCount: 30)
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/theatre_chase.gif)
 
+---
 
 #### Pulse Effect stacked with Popcorn Effect
 ```swift
@@ -133,5 +138,6 @@ ledStrip.popcorn(Color(red: 255, green: 0, blue: 0), averagePopsPerSecond: 6, av
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/pulse_popcorn.gif)
 
-            
+---
+
 ### How it works

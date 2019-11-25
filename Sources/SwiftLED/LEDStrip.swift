@@ -128,7 +128,7 @@ struct EventBuilder {
 
 
 extension LEDStrip {
-    @discardableResult func chain(delay: TimeInterval = 0, @EventBuilder _ content: () -> [Event]) -> SequentialEventGroup {
+    @discardableResult public func chain(delay: TimeInterval = 0, @EventBuilder _ content: () -> [Event]) -> SequentialEventGroup {
         let _autoAddEvents = autoAddEvents
         autoAddEvents = false
         let events = content()
@@ -140,12 +140,12 @@ extension LEDStrip {
         }
         return event
     }
-    @discardableResult func chain(delay: TimeInterval = 0, @EventBuilder _ content: () -> Event) -> SequentialEventGroup {
+    @discardableResult public func chain(delay: TimeInterval = 0, @EventBuilder _ content: () -> Event) -> SequentialEventGroup {
         return chain(delay: delay, { [content()] })
     }
     
     
-    @discardableResult func `repeat`(_ count: Int, delay: TimeInterval = 0, @EventBuilder _ content: () -> [Event]) -> RepeatEvent {
+    @discardableResult public func `repeat`(_ count: Int, delay: TimeInterval = 0, @EventBuilder _ content: () -> [Event]) -> RepeatEvent {
         let _autoAddEvents = autoAddEvents
         autoAddEvents = false
         let events = content()
@@ -158,7 +158,7 @@ extension LEDStrip {
         return repeatEvent
     }
     
-    @discardableResult func `repeat`(_ count: Int, delay: TimeInterval = 0, @EventBuilder _ content: () -> Event) -> RepeatEvent {
+    @discardableResult public func `repeat`(_ count: Int, delay: TimeInterval = 0, @EventBuilder _ content: () -> Event) -> RepeatEvent {
         return `repeat`(count, delay: delay, { [content()] })
     }
 }

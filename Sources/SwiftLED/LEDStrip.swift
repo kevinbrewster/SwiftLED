@@ -10,7 +10,6 @@ import Foundation
 
 
 public class LEDStrip {
-    //let ws281x: WS281x
     let numberOfLeds: Int
     var refreshInterval: TimeInterval = 0.01 {
         didSet {
@@ -27,7 +26,6 @@ public class LEDStrip {
     private var refreshTimer: DispatchSourceTimer?
     private var lastTime: TimeInterval? = nil
     
-    //init(pwm: PWMOutput, numberOfLeds: Int) {
     public init(numberOfLeds: Int) {
         //self.ws281x = WS281x(pwm, type: .WS2812B, numElements: numberOfLeds)
         self.numberOfLeds = numberOfLeds
@@ -70,11 +68,6 @@ public class LEDStrip {
             events.remove(at: index)
         }
         
-        /*
-        self.ws281x.setLeds(array)
-        self.ws281x.start()
-        self.ws281x.wait()
-         */
         self.didRefresh?()
     }
     deinit {
@@ -98,7 +91,9 @@ extension LEDStrip {
     @discardableResult public func animate(_ fill: FillStyle, duration: TimeInterval, delay: TimeInterval = 0, endDelay: TimeInterval = 0, curve: BezierAnimationCurve = .linear) -> ColorAnimationEvent {
         return leds.animate(fill, duration: duration, delay: delay, endDelay: endDelay, curve: curve)
     }
-    
+    @discardableResult public func animate(_ fill: Color, start: Range<Int>, end: Range<Int>, duration: TimeInterval, fillSize: Int? = nil) -> RangeAnimationEvent {
+        return self.animate(fill as FillStyle, start: start, end: end, duration: duration, fillSize: fillSize)
+    }
     @discardableResult public func animate(_ fill: FillStyle, start: Range<Int>, end: Range<Int>, duration: TimeInterval, fillSize: Int? = nil) -> RangeAnimationEvent {
         let event = RangeAnimationEvent(leds: leds, fill: fill, start: start, end: end, duration: duration, wrapAt: leds.count, fillSize: fillSize)
         if autoAddEvents {

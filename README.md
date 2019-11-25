@@ -10,7 +10,34 @@ There is a companion app for MacOS called [SwiftLEDSimulator](https://github.com
 ### Supported LEDs:
 1. WS2812 / WS2812b (aka NeoPixel)
 
-### Examples:
+### Static Examples:
+
+#### Set Single LED Color
+```swift
+ledStrip.leds[5].fill(.orange)
+```
+![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/single_color_orange.png)
+
+#### Set All LED's Color
+```swift
+ledStrip.fill(Color(red: 0, green: 100, blue: 155))
+```
+![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/teal_fill.png)
+
+#### Set Every Fifth LED's Color
+```swift
+let leds = stride(from: 0, to: ledStrip.leds.count, by: 5).map { ledStrip.leds[$0] }
+leds.fill(.green)
+```
+![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/every_5_fill.png)
+
+#### Fill All LEDs with Gradient
+```swift
+ledStrip.fill(Gradient(.red, .orange, .yellow, .orange, .red))
+```
+![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/gradient_fill.png)
+
+### Animation Examples:
 
 #### Single Color LED Move
 ```swift
@@ -83,6 +110,15 @@ ledStrip.threatreChase(rainbow, repeatCount: 30)
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/theatre_chase.gif)
 
 
-     
+#### Pulse Effect stacked with Popcorn Effect
+```swift
+ledStrip.repeatForever {
+    ledStrip.animate(Color(red: 200, green: 0, blue: 0), duration: 3.0, curve: .easeOut)
+    ledStrip.animate(Color(red: 20, green: 0, blue: 0), duration: 3.0, curve: .easeIn)
+}
+ledStrip.popcorn(Color(red: 255, green: 0, blue: 0), averagePopsPerSecond: 6, averagePopDuration: 0.6)
+```
+![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/pulse_popcorn.gif)
+
             
 ### How it works

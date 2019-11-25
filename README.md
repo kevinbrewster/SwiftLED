@@ -121,8 +121,10 @@ ledStrip.repeat(2) {
 ```swift
 let rainbow = Gradient(.red, .green, .blue, .red)
 
-ledStrip.threatreChase(.red, repeatCount: 30)
-ledStrip.threatreChase(rainbow, repeatCount: 30)
+ledStrip.sequence {
+  ledStrip.threatreChase(.red, repeatCount: 30)
+  ledStrip.threatreChase(rainbow, repeatCount: 30)
+}
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/theatre_chase.gif)
 

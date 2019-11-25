@@ -13,7 +13,7 @@ There is a companion app for MacOS called [SwiftLEDSimulator](https://github.com
 
 ---
 
-### Static Examples:
+# Static Examples:
 
 #### Set Single LED Color
 ```swift
@@ -48,7 +48,7 @@ ledStrip.fill(Gradient(.red, .orange, .yellow, .orange, .red))
 
 ---
 
-### Animation Examples:
+# Animation Examples:
 
 #### Single Color LED Move
 ```swift
@@ -146,10 +146,19 @@ ledStrip.popcorn(Color(red: 255, green: 0, blue: 0), averagePopsPerSecond: 6, av
 ---
 
 
-### Supported LEDs:
+# Supported Hardware:
+
+### LEDS:
 1. WS2812 / WS2812b (aka NeoPixel)
 
+### Boards:
+1. Raspberry Pi 1/2/3/4
+
+# Installation
 
 
-### How it works
+# Usage
+
+
+# How it works
 

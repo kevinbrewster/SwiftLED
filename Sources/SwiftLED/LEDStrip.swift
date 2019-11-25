@@ -18,16 +18,15 @@ public class LEDStrip {
         }
     }
     
-    private(set) var leds: [LED] = []
+    public private(set) var leds: [LED] = []
+    public var didRefresh: (() -> Void)?
     
     internal var autoAddEvents = true
     
-    public var didRefresh: (() -> Void)?
-    
-    //private let refreshQueue = DispatchQueue(label: "LEDStrip")
-    private let refreshQueue = DispatchQueue.main
+    private let refreshQueue = DispatchQueue.main // DispatchQueue(label: "LEDStrip")
     private var refreshTimer: DispatchSourceTimer?
-    var lastTime: TimeInterval? = nil
+    private var lastTime: TimeInterval? = nil
+    
     //init(pwm: PWMOutput, numberOfLeds: Int) {
     init(numberOfLeds: Int) {
         //self.ws281x = WS281x(pwm, type: .WS2812B, numElements: numberOfLeds)
@@ -40,13 +39,10 @@ public class LEDStrip {
     private func setupRefreshTimer(interval: TimeInterval) {
         refreshTimer = DispatchSource.makeTimerSource(queue: refreshQueue)
         refreshTimer?.schedule(deadline: .now(), repeating: .milliseconds(Int(refreshInterval * 1000)), leeway: .milliseconds(2))
-        refreshTimer?.setEventHandler { [weak self] in
-            
+        refreshTimer?.setEventHandler { [weak self] in            
             self?.refresh()
         }
         refreshTimer?.resume()
-        
-        
     }
     private func refresh() {
         // Find the actual interval since last refresh
@@ -87,12 +83,10 @@ public class LEDStrip {
     
     
     private var events: [Event] = []
-
-    
     public func add(event: Event) {
-        events += [event]
-        
-        //print("LEDStrip->add(): \(events.count) events")
+        refreshQueue.async { [weak self] in
+            self?.events += [event]
+        }
     }
 }
 

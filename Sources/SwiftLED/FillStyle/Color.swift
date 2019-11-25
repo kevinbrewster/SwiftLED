@@ -18,14 +18,20 @@ public struct Color : Equatable {
     public let green: UInt8
     public let blue: UInt8
     
+    public init(red: UInt8, green: UInt8, blue: UInt8) {
+        self.red = red
+        self.green = green
+        self.blue = blue
+    }
     
+}
+extension Color {
     public static var black = Color(red: 0, green: 0, blue: 0)
     public static var blue = Color(red: 0, green: 0, blue: 0xFF)
     public static var red = Color(red: 0xFF, green: 0, blue: 0)
     public static var green = Color(red: 0, green: 0xFF, blue: 0)
     public static var white = Color(red: 0xFF, green: 0xFF, blue: 0xFF)
 }
-
 
 extension Color: FillStyle {
     public func colors(total: Int) -> [Color] {

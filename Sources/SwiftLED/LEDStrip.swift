@@ -117,11 +117,11 @@ extension LEDStrip {
 
 
 @_functionBuilder
-struct EventBuilder {
-    static func buildBlock(_ events: Event...) -> [Event] {
+public struct EventBuilder {
+    public static func buildBlock(_ events: Event...) -> [Event] {
         return events
     }
-    static func buildBlock(_ events: [Event]) -> [Event] {
+    public static func buildBlock(_ events: [Event]) -> [Event] {
         return events
     }
 }

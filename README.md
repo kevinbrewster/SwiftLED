@@ -18,11 +18,15 @@ ledStrip.leds[5].fill(.orange)
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/single_color_orange.png)
 
+---
+
 #### Set All LED's Color
 ```swift
 ledStrip.fill(Color(red: 0, green: 100, blue: 155))
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/teal_fill.png)
+
+---
 
 #### Set Every Fifth LED's Color
 ```swift
@@ -31,11 +35,15 @@ leds.fill(.green)
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/every_5_fill.png)
 
+---
+
 #### Fill All LEDs with Gradient
 ```swift
 ledStrip.fill(Gradient(.red, .orange, .yellow, .orange, .red))
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/gradient_fill.png)
+
+---
 
 ### Animation Examples:
 
@@ -49,6 +57,8 @@ ledStrip.repeatForever {
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/single_loop.png)
 
+---
+
 #### Dual Color LED Move
 ```swift
 ledStrip.repeatForever {
@@ -58,6 +68,8 @@ ledStrip.repeatForever {
 }
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/dual_loop.png)
+
+---
 
 #### Color Wipes
 ```swift
@@ -69,6 +81,7 @@ ledStrip.repeatForever {
 ```
 ![](https://github.com/kevinbrewster/Documentation/blob/master/SwiftLED/color_wipe.png)
 
+---
 
 #### Comet
 ```swift

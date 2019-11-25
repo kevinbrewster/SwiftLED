@@ -8,7 +8,7 @@
 import Foundation
 
 
-class ConcurrentEventGroup : Event {
+public class ConcurrentEventGroup : Event {
     var events: [Event]
     
     init(events: [Event], delay: TimeInterval = 0) {
@@ -38,7 +38,7 @@ class ConcurrentEventGroup : Event {
 }
     
     
-class SequentialEventGroup : Event {
+public class SequentialEventGroup : Event {
     // Sequentially run events
     var events: [Event]
     

@@ -9,7 +9,7 @@
 import Foundation
 
 
-class LED {
+public class LED {
     var color = Color(red: 0, green: 0, blue: 0)
     weak var ledStrip: LEDStrip?
     

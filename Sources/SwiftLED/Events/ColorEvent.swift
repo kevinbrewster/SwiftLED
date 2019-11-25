@@ -8,7 +8,7 @@
 import Foundation
 
 
-class ColorEvent : Event {
+public class ColorEvent : Event {
     internal let leds: [LED]
     internal let colors: [Color]
     

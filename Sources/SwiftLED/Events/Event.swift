@@ -8,14 +8,14 @@
 
 import Foundation
 
-enum EventState {
+public enum EventState {
     case delayed
     case inProgress
     case endDelayed
     case finished
 }
 
-class Event {
+public class Event {
     internal var delay: TimeInterval = 0
     internal var endDelay: TimeInterval = 0
     
@@ -62,7 +62,7 @@ class Event {
     }
 }
 
-class BlockEvent : Event {    
+public class BlockEvent : Event {
     var block: () -> Bool
     
     init(block: @escaping () -> Bool) {

@@ -11,7 +11,7 @@ import Foundation
 
 typealias Point = (x: Double, y: Double)
 
-struct BezierAnimationCurve {
+public struct BezierAnimationCurve {
     
     static var easeIn = BezierAnimationCurve(p1: (x: 0.42, y: 0.0), p2:(x: 1.0, y: 1.0))
     static var easeOut = BezierAnimationCurve(p1: (x: 0.0, y: 0.0), p2:(x: 0.58, y: 1.0))

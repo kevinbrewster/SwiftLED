@@ -8,7 +8,7 @@
 import Foundation
 
 
-class RepeatEvent : SequentialEventGroup {
+public class RepeatEvent : SequentialEventGroup {
     var repeatCount: Int
     private var remainingRepeats = 0
         

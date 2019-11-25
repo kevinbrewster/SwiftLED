@@ -8,7 +8,7 @@
 import Foundation
 
 
-class AnimationEvent : Event {
+public class AnimationEvent : Event {
     var duration: TimeInterval
     let isReversed = false
     let curve: BezierAnimationCurve
@@ -37,7 +37,7 @@ class AnimationEvent : Event {
 
 
 
-class ColorAnimationEvent : AnimationEvent {
+public class ColorAnimationEvent : AnimationEvent {
     internal let leds: [LED]
     private var initialColors: [(red: Double, green: Double, blue: Double)]!
     private var colorDiffs: [(red: Double, green: Double, blue: Double)]!
@@ -78,7 +78,7 @@ class ColorAnimationEvent : AnimationEvent {
 }
 
 
-class RangeAnimationEvent : AnimationEvent {
+public class RangeAnimationEvent : AnimationEvent {
     internal let leds: [LED]
     
     private let start: Range<Int>

@@ -9,7 +9,7 @@
 import Foundation
 
 
-class LEDStrip {
+public class LEDStrip {
     //let ws281x: WS281x
     let numberOfLeds: Int
     var refreshInterval: TimeInterval = 0.01 {

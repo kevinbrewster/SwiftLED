@@ -2,7 +2,9 @@
 
 SwiftLED is a high-level library to control addressable LEDs with animations and effects. It's designed to run on a Raspberry Pi.
 
-There is a companion app for MacOS called [SwiftLEDSimulator](https://github.com/kevinbrewster/SwiftLEDSimulator) that allows you to test out your LED programs before sending your code to the embedded device (e.g. Raspberry Pi). The animations below are screenshots from this app.
+There is a companion app for MacOS called [SwiftLEDSimulator](https://github.com/kevinbrewster/SwiftLEDSimulator) that allows you to test out your LED programs before sending your code to the embedded device (e.g. Raspberry Pi). 
+
+*The animations below are screenshots from this app.*
 
 
 ### Supported LEDs:

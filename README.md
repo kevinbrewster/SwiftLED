@@ -75,7 +75,7 @@ ledStrip.repeatForever {
 
 #### Color Wipes
 ```swift
-ledStrip.repeatForever {
+ledStrip.sequence {
   ledStrip.animate(.red, start: 0..<1, end: 0..<45, duration: 1.0)
   ledStrip.animate(.green, start: 0..<1, end: 0..<45, duration: 1.0)
   ledStrip.animate(.blue, start: 0..<1, end: 0..<45, duration: 1.0)
